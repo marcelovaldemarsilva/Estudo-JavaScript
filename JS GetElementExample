@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        input{
+            width: 25%;
+            height: 20px;
+            display: block;
+            margin: 10px 0 0 0;
+            margin-bottom: 10px;
+        }
+        .botao{
+            width: 100px;
+            height: 40px;
+                }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulário JS</h1>
+    <form action="">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" class="nome">
+    <label for="idade">Idade:</label>
+    <input type="text" name="idade" id="idade" class="idade">
+    <label for="email">E-mail</label>
+    <input type="email" name="email" id="email" class="email">
+    
+    <input type="button" class="botao" value="validar" onclick="validar()">
+</form>
+    <div class="div-valores"></div>
+  
+</body>
+<script>
+    function validar(){
+
+        var por_name = document.getElementsByName("nome")[0];
+        var por_id = document.getElementById("nome");
+        var por_class= document.getElementsByClassName("nome")[0];
+        var nome = document.querySelector("#nome");
+        var valores = document.querySelector(".div-valores");
+
+        qtd_tags = document.getElementsByTagName("label").length;
+         
+        alert("Quantidade de Label: "+ qtd_tags);
+
+        valores.innerHTML= "Get por Name: "+por_name.value+ "<br>Get por ID: " + por_id.value + " <br>Get por Class: " + por_class.value+ "<br>Get por Query: " + nome.value
+        
+    }
+
+
+</script>
+
+</html>
