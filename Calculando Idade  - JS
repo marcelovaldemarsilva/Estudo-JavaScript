@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            background-color: rgb(103, 113, 255);
+            font: normal 15px Arial;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 10px 10px;
+
+        }
+
+        div {
+            padding: 10px;
+
+        }
+
+        section {
+            padding-top: 10px;
+            background-color: white;
+            border-radius: 10px;
+            margin: auto;
+            width: 500px;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            margin: auto;
+            width: 500px;
+            padding: 15px;
+        }
+        img{
+            border-radius: 50%;
+            width: 250px;
+            height: 230px;
+            padding-top: 20px;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <div>
+            <p>
+                <label for="nascimento">Ano de Nascimento:</label>
+                <input type="number" name="nascimento" id="nascimento" class="radio" min="0">
+            </p>
+            <p>
+                <label for="sexo">Sexo:</label>
+                <input type="radio" name="sexo" id="m"><label for="m">Masculino</label>
+                <input type="radio" name="sexo" id="f"><label for="f">Feminino </label>
+            </p>
+
+            <p>
+                <input type="button" value="verificar" onclick="calcular()">
+            </p>
+        </div>
+        <div id="resultado">Preenchar os dados acima para ver o resultado!</div>
+       
+    </section>
+    <footer>&copy;MarceloValdemar</footer>
+    <script>
+
+        function calcular() {
+            var data = new Date();
+            var anoAtual = data.getFullYear();
+            var nascimento = document.getElementById('nascimento');
+            var resultado = document.getElementById('resultado');
+
+            var masculino = document.getElementById('m');
+            var feminino = document.getElementById('f');
+
+
+            var imagem = document.getElementById('imagem-idade');
+
+            var ano = Number(nascimento.value);
+
+            var idade = anoAtual - ano;
+            var genero;
+
+            //criando uma nova tag
+            var img = document.createElement('img');
+            img.setAttribute('id','foto');
+
+
+            if (nascimento.value == '' || nascimento.value > anoAtual) {
+
+                alert("Verifique o Nascimento!");
+
+            } else if (masculino.checked == false && feminino.checked == false) {
+                alert("Escolha um Sexo!");
+            } else if (masculino.checked) {
+                genero = 'Masculino';
+                if (idade >= 0 && idade < 10) {
+                    //criança
+                    img.setAttribute('src','foto-bebe-m.png')
+                } else if (idade < 21) {
+                    //jovem
+                    img.setAttribute('src','foto-jovem-m.png')
+                } else if (idade < 50) {
+                    //adulto
+                    img.setAttribute('src','foto-adulto-m.png')
+                } else {
+                    //idoso
+                    img.setAttribute('src','foto-idoso-m.png')
+                }
+
+            } else {
+                genero = 'Feminino';
+                if (idade >= 0 && idade < 10) {
+                    //criança
+                    img.setAttribute('src','foto-bebe-f.png')
+                } else if (idade < 21) {
+                    //jovem
+                    img.setAttribute('src','foto-jovem-f.png')
+                } else if (idade < 50) {
+                    //adulto
+                    img.setAttribute('src','foto-adulto-f.png')
+                } else {
+                    //idoso
+                    img.setAttribute('src','foto-idoso-f.png')
+                }
+            }
+            resultado.innerText = `Detectamos ${genero} com ${idade} anos.`;
+            //add a tag criada como filha da div
+            resultado.appendChild(img);
+            resultado.style.textAlign="center";
+            
+            
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
