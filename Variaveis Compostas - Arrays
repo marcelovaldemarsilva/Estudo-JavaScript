@@ -1,0 +1,18 @@
+console.log('Variavies Compostas - Array')
+let numero = [5,9,8,1,2,3,4];
+console.log('add informaçãoes manual:');
+numero[10]=15;
+console.log('Tamanho: '+numero.length);
+console.log(numero);
+console.log('Tamanho: '+numero.length);
+console.log('Posicao: '+numero[5]);
+numero.sort();
+console.log('Sort: '+numero);
+numero.push(10);
+console.log('procurando: '+numero.indexOf(10));
+console.log(numero);
+console.log('Add valor Push: '+numero);
+
+for(let r in numero){
+    console.log(numero[r]);
+}
