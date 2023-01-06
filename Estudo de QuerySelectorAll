@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario JS</title>
+    <style>
+        .txtinput {
+            width: 300px;
+            height: 15px;
+            padding: 8px;
+        }
+
+        .txtinputsect:active {}
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Consolidando Conhecimento Alura</h1>
+    </header>
+    <main>
+        <hr>
+        <p>Nome:
+            <input type="text" name="nome" id="nome">
+        </p>
+        <p>E-mail: <input type="email" name="email" id="email"></p>
+        <p>Endereco:<input type="text" name="endereco" id="endereco" endereco></p>
+        <p>Cep: <input type="text" name="cep" id="cep"></p>
+    </main>
+    <script>
+        window.onload = function () {
+            var inputs = document.querySelectorAll('input[type=text]');
+            console.log(inputs);
+            console.log(inputs[0]);
+            
+            for (let vl = 0; vl < inputs.length; vl++) {
+                var inp = inputs[vl];
+                var classe = inp.classList;
+                console.log(inputs[vl]);
+                classe.add('txtinput');
+                inp.onclick = function () { alert(inputs[vl]); }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
