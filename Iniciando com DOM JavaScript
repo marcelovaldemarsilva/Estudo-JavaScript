@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin-top: 10px;
+    }
+    table{
+        margin: 10px 0 10px 0;
+    }
+    tr,td {
+       
+        padding: 10px 10px;
+        border: 1px solid;
+        border-radius: 5px;        
+    }
+</style>
+
+<body>
+    <h1>Criando Elementos DOM</h1>
+    <hr>
+<div id="divp"></div>
+
+<script>
+    window.onload = () =>{
+
+    const dv = document.getElementById('divp');
+    const input = document.createElement('input');
+    
+
+    input.setAttribute('id','nome');
+    input.type='text';
+    input.placeholder='Digite seu Nome';
+    input.name='nome';
+    
+    const lbl = document.createElement('label');
+    lbl.setAttribute('for','nome');
+    lbl.for='nome';
+    lbl.innerHTML='Nome:';
+
+    const tb = document.createElement('table');
+    tb.setAttribute('id','tabela');
+    
+
+    let linha1 = tb.insertRow();
+    let linha2 = tb.insertRow();
+   
+    
+    linha1.insertCell().innerHTML='Coluna 01';
+    linha1.insertCell().innerHTML='Coluna 02';
+    linha1.insertCell().innerHTML='Coluna 03';
+    linha1.insertCell().innerHTML='Coluna 04';
+    
+    linha2.insertCell().innerHTML='Linha 01';
+    linha2.insertCell().innerHTML='Linha 02';
+    linha2.insertCell().innerHTML='Linha 03';
+    linha2.insertCell().innerHTML='Linha 04';
+ 
+
+    dv.appendChild(lbl);
+    dv.appendChild(input);
+    dv.appendChild(tb);
+    input.addEventListener('click',(e)=>{
+        console.log(e);
+    });
+
+        function oi() {
+            console.log('Deu certo, Ola fnc...!!!')
+
+        }
+    }
+
+    </script>
+</body>
+
+</html>
